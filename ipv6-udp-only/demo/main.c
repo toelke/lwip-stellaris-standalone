@@ -6,9 +6,12 @@
  */
 
 #include <inc/hw_types.h>
+#include <inc/hw_memmap.h>
 
 #include <driverlib/rom.h>
+#include <driverlib/systick.h>
 #include <driverlib/sysctl.h>
+#include <driverlib/gpio.h>
 
 #include <ethernetdriver.h>
 
@@ -47,6 +50,11 @@ int main(void) {
 
 	initialize_network_hardware(&interface);
 	initialize_network(&interface);
+
+	ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_GPIOF);
+	GPIOPinConfigure(GPIO_PF2_LED1);
+	GPIOPinConfigure(GPIO_PF3_LED0);
+	GPIOPinTypeEthernetLED(GPIO_PORTF_BASE, GPIO_PIN_2 | GPIO_PIN_3);
 
 	/** Create the "connection" for incoming data */
 	struct udp_pcb *conn = udp_new();
