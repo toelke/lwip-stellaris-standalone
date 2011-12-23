@@ -1,0 +1,3 @@
+This is a project for Code Composer Studio containing the lwip framework
+
+Please copy the needed lwipopts.h-file into the folder "arch".
