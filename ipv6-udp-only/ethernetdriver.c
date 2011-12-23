@@ -93,8 +93,8 @@ void EthernetISR() {
 static void setMACAddress() {
 	unsigned long ulUser0, ulUser1;
 
-	/* Try to get the device MAC address from flash or use a fixed MAC to allow initial configuration */ROM_FlashUserGet(
-			&ulUser0, &ulUser1);
+	/* Try to get the device MAC address from flash or use a fixed MAC to allow initial configuration */
+	ROM_FlashUserGet(&ulUser0, &ulUser1);
 
 	if ((ulUser0 == 0xffffffff) || (ulUser1 == 0xffffffff)) {
 		interface.hwaddr[0] = 0xAA;
@@ -203,10 +203,6 @@ void initialize_network() {
 
 	netif_set_up(&interface);
 	netif_set_default(&interface);
-
-	ip6_addr_t multicast_addr;
-	ip6addr_aton("FF02::13C", &multicast_addr);
-	mld6_joingroup(IP6_ADDR_ANY, &multicast_addr);
 }
 
 void initialize_network_hardware() {

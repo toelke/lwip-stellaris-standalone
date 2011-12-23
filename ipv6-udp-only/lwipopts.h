@@ -1,4 +1,3 @@
-/* WARNING: fos4X File, make sure there settings are still used after updating LWIP */
 #ifndef LWIPOPTS_H_
 #define LWIPOPTS_H_
 
