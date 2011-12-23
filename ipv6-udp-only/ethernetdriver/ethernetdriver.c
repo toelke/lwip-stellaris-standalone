@@ -208,6 +208,8 @@ void initialize_network() {
 void initialize_network_hardware() {
 	initDMA();
 
+	EthernetIntRegister(ETH_BASE, EthernetISR);
+
 	/* Enable/Reset the Ethernet Controller */
 	ROM_SysCtlPeripheralEnable(SYSCTL_PERIPH_ETH);
 	ROM_SysCtlPeripheralReset(SYSCTL_PERIPH_ETH);
