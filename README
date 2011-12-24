@@ -1,5 +1,6 @@
 This repository contains code to use the lwip-framework (<http://www.sics.se/~adam/lwip/>) on a Luminary Micro/Texas Instrument Stellaris microcontroller without using an operating system.
 
 Folders:
-* ipv6-udp-only driver and initialization to use UDP over IPv6
+* ipv6-udp-only: driver and demo application to use UDP over IPv6
+* ipv6-ucp-tcp: driver and demo application to use UDP and TCP over IPv6
 * lwip: the lwip stack
