@@ -37,6 +37,9 @@ static void recv(void *arg, struct udp_pcb *pcb, struct pbuf *p, ip6_addr_t *add
 	memcpy(p_s->payload, data, p->len);
 
 	udp_sendto(pcb, p_s, (ip_addr_t*)addr, port);
+
+	pbuf_free(p);
+	pbuf_free(p_s);
 }
 
 int main(void) {
